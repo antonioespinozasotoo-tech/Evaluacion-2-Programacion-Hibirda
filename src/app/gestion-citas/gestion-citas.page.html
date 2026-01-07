@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Gestión de Citas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-item>
+    <ion-input label="Texto de la cita" [(ngModel)]="texto"></ion-input>
+  </ion-item>
+  <div *ngIf="textoInvalido" class="error-msg">
+    La frase debe tener al menos 5 caracteres
+  </div>
+
+  <ion-item>
+    <ion-input label="Autor" [(ngModel)]="autor"></ion-input>
+  </ion-item>
+  <div *ngIf="autorInvalido" class="error-msg">
+    El autor debe tener al menos 2 caracteres
+  </div>
+
+  <ion-button expand="block" (click)="agregarCita()">
+    Agregar cita
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let cita of citasService.getCitas(); let i = index">
+      <ion-label>
+        <h2>{{ cita.texto }}</h2>
+        <p>{{ cita.autor }}</p>
+      </ion-label>
+
+      <ion-button color="danger" (click)="eliminarCita(i)">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

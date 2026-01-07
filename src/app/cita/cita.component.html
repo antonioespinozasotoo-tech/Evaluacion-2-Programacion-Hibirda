@@ -1,0 +1,14 @@
+<ion-card *ngIf="cita">
+  <ion-card-content>
+    <p>{{ cita.texto }}</p>
+    <strong>{{ cita.autor }}</strong>
+
+    <ion-button
+      *ngIf="permitirBorrar"
+      color="danger"
+      expand="block"
+      (click)="solicitarBorrado()">
+      Borrar cita
+    </ion-button>
+  </ion-card-content>
+</ion-card>

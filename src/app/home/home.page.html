@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Citas</ion-title>
+
+    <ion-buttons slot="end">
+      <!-- Botón para ir a Configuración -->
+      <ion-button (click)="irConfiguracion()">
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Mostrar cita usando el componente app-cita -->
+  <app-cita
+    [cita]="citaActual"
+    [permitirBorrar]="puedeBorrar()"
+    (borrar)="borrarCita()">
+  </app-cita>
+
+  <!-- Botón flotante para ir a Gestión de Citas -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="irGestionCitas()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
